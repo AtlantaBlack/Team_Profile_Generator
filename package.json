@@ -4,7 +4,7 @@
   "description": "An application using Node.js that generates a webpage displaying members and member details of a production team.",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "__tests__"
   },
   "scripts": {
     "test": "jest"
