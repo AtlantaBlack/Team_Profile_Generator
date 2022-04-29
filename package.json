@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "An application using Node.js that generates a webpage displaying members and member details of a production team.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtlantaBlack/Team_Profile_Generator.git"
+  },
+  "keywords": [
+    "team",
+    "profile",
+    "generator",
+    "javascript",
+    "node"
+  ],
+  "author": "Sushan Yue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AtlantaBlack/Team_Profile_Generator/issues"
+  },
+  "homepage": "https://github.com/AtlantaBlack/Team_Profile_Generator#readme"
+}
