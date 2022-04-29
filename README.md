@@ -26,21 +26,7 @@ This application uses the following technologies:
 
 ## Installation
 
-Please clone the [README Generator repository](https://github.com/AtlantaBlack/README_Generator) or download the ZIP file to your local machine. 
-
-Then, using Terminal or the command line, navigate to the root directory of the downloaded folder:
-
-`cd README_Generator-main`
-
-### Installing Inquirer package
-
-Install Inquirer.js by entering the ONE of the following commands:
-
-`npm i inquirer` 
-
-OR 
-
-`npm install inquirer`
+desc desc
 
 ## Usage
 
