@@ -22,6 +22,7 @@ This application uses the following technologies:
 
 * JavaScript
 * Node.js
+* Jest.js
 * Inquirer.js
 
 ## Installation
