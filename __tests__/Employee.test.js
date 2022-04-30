@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee");
 describe("Employee tests", () => {
     describe("Initialisation", () => {
         // positive test
-        test("New Employee contains three parameters: name, ID, and email", () => {
+        test("New Employee contains three parameters: name, ID, email", () => {
             const validEmployee = new Employee("James McPerson", 2, "email@email.com");
 
             expect(validEmployee.getName()).toEqual("James McPerson");
@@ -50,7 +50,7 @@ describe("Employee tests", () => {
     // validation for ID input
     describe("ID validation", () => {
         // positive test
-        test("Employee ID is a number greater than or equal to 1", () => {
+        test("Employee ID should be a number greater than or equal to 1", () => {
             const validEmployee = new Employee("James McPerson", 5, "email@email.com");
 
             expect(validEmployee.id).toBeGreaterThanOrEqual(1);
@@ -94,7 +94,7 @@ describe("Employee tests", () => {
 
             const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
-            expect(regexEmail.test(validEmail)).toBe(true);
+            expect(regexEmail.test(validEmail)).toEqual(true);
         })
 
         // exception test
