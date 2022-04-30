@@ -25,48 +25,91 @@ describe("Employee tests", () => {
             expect(validEmployee.name.length).toBeGreaterThanOrEqual(1);
         })
 
-        test("Employee name is a string containing alphanumeric characters (includes space and underscores)", () => {
-            const validEmployee = new Employee("James McPerson", 2, "email@email.com");
-            const validName = validEmployee.getName();
-
-            const nameRegex = /[\w ]*/;
-
-            expect(nameRegex.test(validName)).toBe(true);
-        })
-
         // exception test
         test("Should fail if Employee name is an empty string", () => {
             const invalidEmployee = new Employee("", 2, "email@email.com");
+            const err = "Name cannot be an empty string.";
 
             expect(() => {
                 invalidEmployee.getName();
-            }).toThrow("Name cannot be an empty string.");
+            }).toThrow(err);
+        })
+        test("Should fail if Employee name contains special characters", () => {
+            const invalidEmployee = new Employee("James # McPerson", 2, "email@email.com");
+            const err = "Name can only contain alphanumeric characters (including spaces and underscores).";
+
+            expect(() => {
+                invalidEmployee.getName();
+            }).toThrow(err);
         })
     })
 
     describe("ID validation", () => {
         // positive test
         test("Employee ID is a number greater than or equal to 1", () => {
-            const validEmployee = new Employee("James McPerson", 1, "email@email.com");
+            const validEmployee = new Employee("James McPerson", 5, "email@email.com");
 
             expect(validEmployee.id).toBeGreaterThanOrEqual(1);
         })
+
         // exception
-        test("Should fail if Employee ID type is not a Number", () => {
-            const invalidEmployee = new Employee("James McPerson", "1", "email@email.com");
+        test("Should fail if no ID is inputted", () => {
+            const invalidEmployee = new Employee("James McPerson", "", "email@email.com");
+            const err = "Please input an ID number.";
 
             expect(() => {
                 invalidEmployee.getId();
-            }).toThrow("ID must be a Number (not a string).");
+            }).toThrow(err);
+        })
+        test("Should fail if Employee ID type is not a Number", () => {
+            const invalidEmployee = new Employee("James McPerson", "15", "email@email.com");
+            const err = "ID must be a Number (not a string)."
+
+            expect(() => {
+                invalidEmployee.getId();
+            }).toThrow(err);
         })
 
         test("Should fail if Employee ID is less than 1", () => {
             const invalidEmployee = new Employee("James McPerson", -1, "email@email.com");
+            const err = "ID cannot be a number less than 1"
 
             expect(() => {
                 invalidEmployee.getId();
-            }).toThrow("ID cannot be a number less than 1.");
+            }).toThrow(err);
         })
+    })
+
+    describe("Email validation", () => {
+        // positive test
+        test("Email should be a string containing one '@' symbol and at least one dot '.'", () => {
+            const validEmployee = new Employee("James McPerson", 2, "email@email.com");
+            const validEmail = validEmployee.getEmail();
+
+            const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+
+            expect(regexEmail.test(validEmail)).toBe(true);
+        })
+
+        //exception test
+        test("Should fail if Employee email is an empty string", () => {
+            const invalidEmployee = new Employee("James McPerson", 2, "");
+            const err = "Email cannot be an empty string.";
+
+            expect(() => {
+                invalidEmployee.getEmail();
+            }).toThrow(err);
+        })
+
+        test("Should fail if Employee email does not contain one '@' symbol and at least one dot '.'", () => {
+            const invalidEmployee = new Employee("James McPerson", 2, "@.com");
+            const err = "Email must contain one '@' symbol and at least one dot '.'.";
+
+            expect(() => {
+                invalidEmployee.getEmail();
+            }).toThrow(err);
+        })
+
     })
 
 })
