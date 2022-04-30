@@ -2,6 +2,7 @@ const Employee = require("../lib/Employee");
 
 describe("Employee tests", () => {
     describe("Initialisation", () => {
+        // positive test
         test("New Employee contains three parameters: name, ID, and email", () => {
             const validEmployee = new Employee("James McPerson", 2, "email@email.com");
 
@@ -9,7 +10,7 @@ describe("Employee tests", () => {
             expect(validEmployee.getId()).toEqual(2);
             expect(validEmployee.getEmail()).toEqual("email@email.com");
         })        
-        
+        // positive test
         test("New Employee is assigned the role 'Employee'", () => {
             const validEmployee = new Employee("James McPerson", 2, "email@email.com");
 
@@ -17,6 +18,7 @@ describe("Employee tests", () => {
         })
     })
 
+    // validation for name input
     describe("Name validation", () => {
         // positive test
         test("Employee name is a string containing at least one (1) character", () => {
@@ -34,6 +36,7 @@ describe("Employee tests", () => {
                 invalidEmployee.getName();
             }).toThrow(err);
         })
+        // exception test
         test("Should fail if Employee name contains special characters", () => {
             const invalidEmployee = new Employee("James # McPerson", 2, "email@email.com");
             const err = "Name can only contain alphanumeric characters (including spaces and underscores).";
@@ -44,6 +47,7 @@ describe("Employee tests", () => {
         })
     })
 
+    // validation for ID input
     describe("ID validation", () => {
         // positive test
         test("Employee ID is a number greater than or equal to 1", () => {
@@ -52,24 +56,25 @@ describe("Employee tests", () => {
             expect(validEmployee.id).toBeGreaterThanOrEqual(1);
         })
 
-        // exception
+        // exception test
         test("Should fail if no ID is inputted", () => {
             const invalidEmployee = new Employee("James McPerson", "", "email@email.com");
-            const err = "Please input an ID number.";
+            const err = "Please input an ID number (ID must be a number greater than 1).";
 
             expect(() => {
                 invalidEmployee.getId();
             }).toThrow(err);
         })
+        // exception test
         test("Should fail if Employee ID type is not a Number", () => {
-            const invalidEmployee = new Employee("James McPerson", "15", "email@email.com");
-            const err = "ID must be a Number (not a string)."
+            const invalidEmployee = new Employee("James McPerson", "abc", "email@email.com");
+            const err = "Please input an ID number (ID must be a number greater than 1)."
 
             expect(() => {
                 invalidEmployee.getId();
             }).toThrow(err);
         })
-
+        // exception test
         test("Should fail if Employee ID is less than 1", () => {
             const invalidEmployee = new Employee("James McPerson", -1, "email@email.com");
             const err = "ID cannot be a number less than 1"
@@ -80,6 +85,7 @@ describe("Employee tests", () => {
         })
     })
 
+    // validation for email input
     describe("Email validation", () => {
         // positive test
         test("Email should be a string containing one '@' symbol and at least one dot '.'", () => {
@@ -91,7 +97,7 @@ describe("Employee tests", () => {
             expect(regexEmail.test(validEmail)).toBe(true);
         })
 
-        //exception test
+        // exception test
         test("Should fail if Employee email is an empty string", () => {
             const invalidEmployee = new Employee("James McPerson", 2, "");
             const err = "Email cannot be an empty string.";
@@ -100,7 +106,7 @@ describe("Employee tests", () => {
                 invalidEmployee.getEmail();
             }).toThrow(err);
         })
-
+        // exception test
         test("Should fail if Employee email does not contain one '@' symbol and at least one dot '.'", () => {
             const invalidEmployee = new Employee("James McPerson", 2, "@.com");
             const err = "Email must contain one '@' symbol and at least one dot '.'.";
@@ -109,9 +115,7 @@ describe("Employee tests", () => {
                 invalidEmployee.getEmail();
             }).toThrow(err);
         })
-
     })
-
 })
 
 
