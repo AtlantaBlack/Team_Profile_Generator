@@ -21,19 +21,24 @@ describe("Employee tests", () => {
     // validation for name input
     describe("Name validation", () => {
         // positive test
-        test("Employee name is a string containing at least one (1) character", () => {
-            const validEmployee = new Employee("James McPerson", 2, "email@email.com");
+        test("Employee name is a string containing at least one (1) alphanumeric character", () => {
+            const validEmployee = new Employee("James McPerson", 2, "email@email.com")
 
             expect(validEmployee.name.length).toBeGreaterThanOrEqual(1);
         })
 
         // exception test
-        test("Should fail if Employee name is an empty string", () => {
-            const invalidEmployee = new Employee("", 2, "email@email.com");
-            const err = "Name cannot be an empty string.";
+        test("Should fail if Employee name is an empty string or an empty space", () => {
+            const invalidEmployees = [
+                new Employee("", 2, "email@email.com"),
+                new Employee(" ", 2, "email@email.com")
+            ];
+            const err = "Name cannot be an empty string (must contain at least one alphanumeric character).";
 
             expect(() => {
-                invalidEmployee.getName();
+                invalidEmployees.forEach(invalidEmployee => {
+                    invalidEmployee.getName();
+                })
             }).toThrow(err);
         })
         // exception test
@@ -108,11 +113,18 @@ describe("Employee tests", () => {
         })
         // exception test
         test("Should fail if Employee email does not contain one '@' symbol and at least one dot '.'", () => {
-            const invalidEmployee = new Employee("James McPerson", 2, "@.com");
+            const invalidEmployees = [
+                new Employee("James McPerson", 2, "@.com"),
+                new Employee("Alfred Hitchcock", 3, "email"),
+                new Employee("Sandra Manfield", 5, "email.com"),
+                new Employee("King Hyrule", 6, "email@email")
+            ];
             const err = "Email must contain one '@' symbol and at least one dot '.'.";
 
             expect(() => {
-                invalidEmployee.getEmail();
+                invalidEmployees.forEach(invalidEmployee => {
+                    invalidEmployee.getEmail();
+                })
             }).toThrow(err);
         })
     })

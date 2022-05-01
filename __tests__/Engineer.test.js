@@ -23,8 +23,11 @@ describe("Engineer tests", () => {
         // positive test
         test("GitHub URL should be a valid URL containing 'http' or 'https', 'github', and 'userprofile', and without any spaces", () => {
             const validEngineer = new Engineer("Jimothy Jones", 3, "email@email.com", "http://github.com/JimothyJones");
+            const validGitHub = validEngineer.getGitHub();
 
-            expect(validEngineer.getGitHub()).toEqual("http://github.com/JimothyJones");
+            const gitRegex = /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/i;
+
+            expect(gitRegex.test(validGitHub)).toEqual(true);
         })
 
         // exception test
