@@ -41,28 +41,13 @@ describe("Engineer tests", () => {
             }).toThrow(err);
         })
         // exception test
-        test("Should fail if GitHub URL does not contain 'http' or 'https'", () => {
-            const invalidEngineers = [
-                new Engineer("Jimothy Jones", 3, "email@email.com", "www.github.com"),
-                new Engineer("Ron Weasley", 4, "email@email.com", "github.com"),
-                new Engineer("Ash Ketchum", 5, "email@email.com", "github.io/ashketchum")
-            ];
-            const err = "Please enter a valid URL that contains 'http' or 'https', 'github', and 'userprofile'. Do not include spaces.";
-
-            expect(() => {
-                invalidEngineers.forEach(Engineer => {
-                    Engineer.getGitHub();
-                })
-            }).toThrow(err);
-        })
-        // exception test
         test("Should fail if GitHub URL does not contain 'github'", () => {
             const invalidEngineers = [
                 new Engineer("Jimothy Jones", 3, "email@email.com", "http://facebook.com"),
                 new Engineer("Ron Weasley", 4, "email@email.com", "https://githu.com"),
                 new Engineer("Ash Ketchum", 5, "email@email.com", "http://www.git.io/ashketchum")
             ];
-            const err = "Please enter a valid URL that contains 'http' or 'https', 'github', and 'userprofile'. Do not include spaces.";
+            const err = "Please enter a valid GitHub URL. Do not include spaces.";
 
             expect(() => {
                 invalidEngineers.forEach(Engineer => {
@@ -76,7 +61,7 @@ describe("Engineer tests", () => {
                 new Engineer("Jimothy Jones", 3, "email@email.com", "http://www.github.com/"),
                 new Engineer("Ron Weasley", 4, "email@email.com", "https://github.com")
             ];
-            const err = "Please enter a valid URL that contains 'http' or 'https', 'github', and 'userprofile'. Do not include spaces.";
+            const err = "Please enter a valid GitHub URL. Do not include spaces.";
 
             expect(() => {
                 invalidEngineers.forEach(Engineer => {
@@ -91,7 +76,7 @@ describe("Engineer tests", () => {
                 new Engineer("Ron Weasley", 4, "email@email.com", "https:// github.com/RW"),
                 new Engineer("Ash Ketchum", 5, "email@email.com", "ht tp://www. github.io/ashketchum")
             ];
-            const err = "Please enter a valid URL that contains 'http' or 'https', 'github', and 'userprofile'. Do not include spaces.";
+            const err = "Please enter a valid GitHub URL. Do not include spaces.";
 
             expect(() => {
                 invalidEngineers.forEach(Engineer => {
