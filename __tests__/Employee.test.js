@@ -11,7 +11,7 @@ describe("Employee tests", () => {
             expect(validEmployee.getEmail()).toEqual("email@email.com");
         })        
         // positive test
-        test("New Employee is assigned the role 'Employee'", () => {
+        test("New Employee should get assigned role = Employee", () => {
             const validEmployee = new Employee("James McPerson", 2, "email@email.com");
 
             expect(validEmployee.role).toEqual("Employee");
