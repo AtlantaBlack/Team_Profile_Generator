@@ -25,6 +25,7 @@ describe("Engineer tests", () => {
             const validEngineer = new Engineer("Jimothy Jones", 3, "email@email.com", "http://github.com/JimothyJones");
             const validGitHub = validEngineer.getGitHub();
 
+            // regex to make sure the URL format is: http(s)://(www.)github.string/userstring (characters in brackets optional)
             const gitRegex = /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/i;
 
             expect(gitRegex.test(validGitHub)).toEqual(true);

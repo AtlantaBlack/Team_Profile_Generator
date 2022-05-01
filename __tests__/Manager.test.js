@@ -29,12 +29,17 @@ describe("Manager tests", () => {
         })
 
         // exception test
-        test("Should fail if Office Number is undefined", () => {
-            const invalidManager = new Manager("George Bush", 1, "email@email.com", "");
+        test("Should fail if Office Number is undefined or a string of empty spaces", () => {
+            const invalidManagers = [
+                new Manager("George Bush", 1, "email@email.com", ""),
+                new Manager("George Bush", 1, "email@email.com", "    ")
+            ];
             const err = "Please input Manager's Office Number. If none, input 'N/A' or '---'.";
 
             expect(() => {
-                invalidManager.getOfficeNumber();
+                invalidManagers.forEach(invalidManager => {
+                    invalidManager.getOfficeNumber();                    
+                })
             }).toThrow(err);
         })
     })

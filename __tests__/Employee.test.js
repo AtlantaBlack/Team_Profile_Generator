@@ -28,10 +28,10 @@ describe("Employee tests", () => {
         })
 
         // exception test
-        test("Should fail if Employee name is an empty string or an empty space", () => {
+        test("Should fail if Employee name is an empty string or a string of empty spaces", () => {
             const invalidEmployees = [
                 new Employee("", 2, "email@email.com"),
-                new Employee(" ", 2, "email@email.com")
+                new Employee("     ", 3, "email@email.com")
             ];
             const err = "Name cannot be an empty string (must contain at least one alphanumeric character).";
 
@@ -65,9 +65,9 @@ describe("Employee tests", () => {
         test("Should fail if no ID is inputted", () => {
             const invalidEmployees = [
                 new Employee("James McPerson", "", "email@email.com"),
-                new Employee("James McPerson", " ", "email@email.com")
+                new Employee("Jiminy McCricket", "    ", "email@email.com")
             ];
-            const err = "Please input an ID number (ID must be a number greater than 1).";
+            const err = "Please enter an ID number (ID must be a number greater than 1).";
 
             expect(() => {
                 invalidEmployees.forEach(invalidEmployee => {
@@ -77,11 +77,16 @@ describe("Employee tests", () => {
         })
         // exception test
         test("Should fail if Employee ID type is not a Number", () => {
-            const invalidEmployee = new Employee("James McPerson", "abc", "email@email.com");
-            const err = "Please input an ID number (ID must be a number greater than 1)."
+            const invalidEmployees = [
+                new Employee("James McPerson", "12", "email@email.com"),
+                new Employee("Jiminy McCricket", "abc", "email@email.com")
+            ];
+            const err = "Please enter an ID number (ID must be a number greater than 1)."
 
             expect(() => {
-                invalidEmployee.getId();
+                invalidEmployees.forEach(invalidEmployee => {
+                    invalidEmployee.getId();
+                })
             }).toThrow(err);
         })
         // exception test
@@ -102,6 +107,7 @@ describe("Employee tests", () => {
             const validEmployee = new Employee("James McPerson", 2, "email@email.com");
             const validEmail = validEmployee.getEmail();
 
+            // regex to make sure the format is "string@string.str"
             const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
             expect(regexEmail.test(validEmail)).toEqual(true);
@@ -134,68 +140,3 @@ describe("Employee tests", () => {
         })
     })
 })
-
-
-// describe("Employee tests", () => {
-//     describe("Initialisation", () => {
-//         test("Employee is created and assigned the role 'Employee'", () => {
-//             const validEmployee = new Employee();
-
-//             expect(validEmployee).toEqual({role: "Employee"});
-//         })
-//         test("Employee contains three parameters: name, ID, and email", () => {
-//             let validEmployee = new Employee();
-//             validEmployee.getName("Sushan Yue");
-//             validEmployee.getId(5);
-//             validEmployee.getEmail("email@email.com");
-
-//             expect(validEmployee).toEqual({
-//                 name: "Sushan Yue",
-//                 id: 5,
-//                 email: "email@email.com",
-//                 role: "Employee"
-//             })
-//         })
-//     })
-
-//     describe("Name validation", () => {
-//         // positive test
-//         test("Employee name is a string containing at least one (1) character", () => {
-//             const validEmployee = new Employee();
-//             validEmployee.getName("Sushan Yue");
-
-//             expect(validEmployee.name.length).toBeGreaterThanOrEqual(1);
-//         })
-//         // exception test
-//         test("Name must be a non-empty string", () => {
-//             const cb = () => {
-//                 invalidEmployee = new Employee();
-//                 invalidEmployee.getName(""); 
-//             }
-//             const InvalidNameError = "Name must be a non-empty string.";
-
-//             expect(cb).toThrowError(InvalidNameError);
-//         })
-//     })
-
-//     describe("ID validation", () => {
-//         // positive test
-//         test("Employee ID is a number greater than or equal to 1", () => {
-//             const validEmployee = new Employee();
-//             validEmployee.getId(1);
-
-//             expect(validEmployee.id).toBeGreaterThanOrEqual(1);
-//         })
-//         // exception
-//         test("Employee ID input type must be a number (not a string)", () => {
-//             const cb = () => {
-//                 invalidEmployee = new Employee();
-//                 invalidEmployee.getId("5");
-//             } 
-//             const InvalidIdError = "ID input must be a number greater than or equal to 1.";
-
-//             expect(cb).toThrowError(InvalidIdError);
-//         })
-//     })
-
-// })
