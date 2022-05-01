@@ -30,7 +30,7 @@ describe("Intern tests", () => {
                 new Intern("Sally Mae", 10, "email@email.com", ""),
                 new Intern("Sally Mae", 10, "email@email.com", " ")
             ];
-            const err = "Please input Intern's school.";
+            const err = "Please input Intern's school. If none, input 'N/A' or '---'.";
 
             expect(() => {
                 invalidInterns.forEach(invalidIntern => {
