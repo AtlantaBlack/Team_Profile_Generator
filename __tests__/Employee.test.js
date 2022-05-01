@@ -63,11 +63,16 @@ describe("Employee tests", () => {
 
         // exception test
         test("Should fail if no ID is inputted", () => {
-            const invalidEmployee = new Employee("James McPerson", "", "email@email.com");
+            const invalidEmployees = [
+                new Employee("James McPerson", "", "email@email.com"),
+                new Employee("James McPerson", " ", "email@email.com")
+            ];
             const err = "Please input an ID number (ID must be a number greater than 1).";
 
             expect(() => {
-                invalidEmployee.getId();
+                invalidEmployees.forEach(invalidEmployee => {
+                    invalidEmployee.getId();                    
+                })
             }).toThrow(err);
         })
         // exception test
