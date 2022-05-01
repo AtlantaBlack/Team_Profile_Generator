@@ -37,35 +37,65 @@ const askInternQuestions = () => {
         // });
 }
 
-const addTeamMember = () => {
-    questions = {
-        type: "list",
-        name: "role",
-        message: "Add a team member?",
-        choices: ["Engineer", "Intern", "I do not want to add a team member."]
-    }
+/* IGNORE THIS
 
-    return inquirer.prompt(questions)
+// const addTeamMember = () => {
+//     questions = {
+//         type: "list",
+//         name: "role",
+//         message: "Add a team member?",
+//         choices: ["Engineer", "Intern", "I do not want to add a team member."]
+//     }
+
+//     return inquirer.prompt(questions)
+//         .then(answers => {
+//             // console.log("add team member answer:");
+//             console.log(answers)
+
+//             teamMemberDetails(answers.role);
+//         })
+// }
+
+// const teamMemberDetails = (role) => {
+//     switch (role) {
+//         case "Engineer":
+//             askEngineerQuestions();
+//             break;
+//         case "Intern":
+//             askInternQuestions();
+//             break;
+//         default:
+//             exitAndGeneratePage();
+//     }
+// }
+*/
+
+
+const addTeamMember = () => {
+    inquirer
+        .prompt(
+        {
+            type: "list",
+            name: "role",
+            message: "Add a team member?",
+            choices: ["Engineer", "Intern", "I do not want to add a team member."]
+        })
         .then(answers => {
             // console.log("add team member answer:");
             console.log(answers)
-            
-            teamMemberDetails(answers.role);
+            switch (answers.role) {
+                case "Engineer":
+                    askEngineerQuestions();
+                    break;
+                case "Intern":
+                    askInternQuestions();
+                    break;
+                default:
+                    exitAndGeneratePage();
+            };
         })
 }
 
-const teamMemberDetails = (role) => {
-    switch (role) {
-        case "Engineer":
-            askEngineerQuestions();
-            break;
-        case "Intern":
-            askInternQuestions();
-            break;
-        default:
-            exitAndGeneratePage();
-    }
-}
 
 const exitAndGeneratePage = () => {
     console.log("exit");
