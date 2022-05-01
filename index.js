@@ -87,8 +87,8 @@ const init = () => {
                 `${answers.name}`,
                 `${answers.id}`,
                 `${answers.email}`,
-                `${answers.officeNumber}`)
-
+                `${answers.officeNumber}`
+            )
             team.push(manager); // add manager to the team
             addTeamMember(); // ask to add more team members
         })
