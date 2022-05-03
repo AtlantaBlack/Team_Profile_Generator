@@ -1,31 +1,34 @@
-// function generateTeamCard(teamMember) {
-
-//     let teamMember = team;
-//     let role = "";
-//     let info = "";
-//     const email = `Email: <a href="mailto:${teamMember.email}" target:"_blank">${teamMember.email}</a>`;
-    
-//     if (teamMember.role === "Manager") {
-
-//     }
-// }
 
 function generateManagerSection(managers) {
-    return `${JSON.stringify(managers)}`;
-    
-//     return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
-//     <div class="card border-secondary mb-3" style="width: auto;">
-//         <div class="card-header">
-//             <p>NAME GOES HERE</p>
-//             <p>icon ROLE</p>
-//         </div>
-//         <ul class="list-group list-group-flush">
-//             <li class="list-group-item">ID: ____</li>
-//             <li class="list-group-item">Email: ______</li>
-//             <li class="list-group-item">GitHub: ______</li>
-//         </ul>
-//     </div>
-// </div>`;
+    // return `${JSON.stringify(managers)}`;
+
+    if (!managers) {
+        return `This team does not have any managers/team leads.`
+    } else {
+        managers.forEach(manager => {
+
+            console.log("manager in generate manager section");
+            console.log(manager);
+            console.log(manager.name);
+
+            const icon = `<i class="fa-solid fa-people-group"></i>`;
+            const email = `Email: <a href="mailto:${manager.email}" target:"_blank">${manager.email}</a>`;
+        
+            return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
+            <div class="card border-secondary mb-3" style="width: auto;">
+                <div class="card-header">
+                    <p>${manager.name}</p>
+                    <p>${icon} ${manager.role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${manager.id}</li>
+                    <li class="list-group-item">Email: ${email}</li>
+                    <li class="list-group-item">Office: ${manager.officeNumber}</li>
+                </ul>
+            </div>
+        </div>`
+        });
+    }
 }
 
 function generateEngineerSection(engineers) {
