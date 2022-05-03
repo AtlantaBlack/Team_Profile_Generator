@@ -71,33 +71,33 @@ Below: Gif of Team Profile page that was generated
 
 ## Screenshots
 
-This is the application **Team Profile Generator** as viewed in **Terminal**:
+This is the **Team Profile Generator** as viewed in **Terminal**:
 
 ![Screenshot of Team Profile Generator: Terminal](assets/images/screenshot-team-profile-gen-terminal.jpg?raw=true "Team Profile Generator in Terminal")
 
 ---
 
-This is the application passing all its tests as viewed in **Visual Studio Code**:
+This is the **Team Profile Generator** passing all its tests as viewed in **Visual Studio Code**:
 
 ![Screenshot of Team Profile Generator: Passing tests](assets/images/screenshot-passing-tests.jpg?raw=true "Team Profile Generator passing its tests")
 
 ---
 
-This is how the body of the generated webpage looks with all sections populated:
+This is how the body of the generated webpage will look with all sections populated:
 
 ![Screenshot of Team Profile Generator: All sections populated](assets/images/screenshot-team-profile-gen-body.jpg?raw=true "Team Profile Generator with managers, engineers and interns")
 
 ---
 
-This is how the generated webpage looks if no engineers were entered:
+This is how the generated webpage will look if no engineers are entered:
 
 ![Screenshot of Team Profile Generator: No engineers](assets/images/screenshot-team-profile-gen-no-engineers.jpg?raw=true "Team Profile Generator with no engineers")
 
 ---
 
-This is how the generated webpage looks if no interns were entered:
+This is how the generated webpage will look if no interns are entered:
 
-![Screenshot of Team Profile Generator: No interns](assets/images/screenshot-team-profile-gen-no-engineers.jpg?raw=true "Team Profile Generator with no interns")
+![Screenshot of Team Profile Generator: No interns](assets/images/screenshot-team-profile-gen-no-interns.jpg?raw=true "Team Profile Generator with no interns")
 
 ---
 
