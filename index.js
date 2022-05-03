@@ -1,3 +1,7 @@
+// =============================
+//       IMPORTING MODULES
+// =============================
+
 // import frameworks
 const fs = require("fs");
 const inquirer = require("inquirer");
@@ -9,11 +13,20 @@ const Intern = require("./lib/Intern");
 
 // import helper code modules
 const q = require("./src/questions"); // questions module
-const generatePage = require("./src/generateHTML"); // generate page module
+const generatePage = require("./src/generatePage"); // generate page module
 
-// global variables
+// =============================
+//        GLOBAL VARIABLES
+// =============================
+
 let employees = []; // empty array to eventually fill with answers about the team
 let questions = []; // empty array that will fill with questions based on employee role
+
+// =============================
+//           FUNCTIONS
+// =============================
+
+// --- FUNCTIONS: Questions ----
 
 // asking questions for the manager
 const askManagerQuestions = () => {
@@ -80,6 +93,24 @@ const addTeamMember = () => {
         .catch((err) => console.error(err));
 }
 
+// --- FUNCTIONS: Exiting / Writing To File ----
+
+// exit inquirer and pass the answers on
+const exitAndGeneratePage = () => {
+    console.log("exit");
+
+    const managers = filterEmployeeByRole("Manager");
+    const engineers = filterEmployeeByRole("Engineer");
+    const interns = filterEmployeeByRole("Intern");
+
+    fs.writeFileSync("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
+        err ? console.error(err) : console.log("\n\npage generated!\n\n");
+    });
+}
+
+// --- FUNCTIONS: General / Utility ----
+
+// filter employees by their role (make it easier to send data on later)
 const filterEmployeeByRole = (role) => {
     switch (role) {
         case "Manager":
@@ -93,31 +124,7 @@ const filterEmployeeByRole = (role) => {
     }
 }
 
-// exit inquirer and pass the answers on
-const exitAndGeneratePage = () => {
-    // console.log(employees);    
-    console.log("exit");
-
-
-    const managers = filterEmployeeByRole("Manager");
-    // console.log("managers:");
-    // console.log(managers);
-
-    const engineers = filterEmployeeByRole("Engineer");
-    console.log(`engineers: ${engineers.length}`);
-    // console.log("engineers:");
-    console.log(engineers);
-
-    const interns = filterEmployeeByRole("Intern");
-    console.log(`interns: ${interns.length}`);
-    // console.log("interns:");
-    console.log(interns);
-
-
-    fs.writeFileSync("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
-        err ? console.error(err) : console.log("\n\npage generated!\n\n");
-    });
-}
+// --- FUNCTIONS: Initialisation ----
 
 // initialise the app
 const init = () => {
@@ -137,23 +144,3 @@ const init = () => {
 
 // start the app!
 init();
-
-// ignore: originally put in exitAndGeneratePage
-    // const team = {
-    //     managers,
-    //     engineers,
-    //     interns
-    // };
-
-    // console.log("team:");
-    // console.log(team);
-
-    // employees.forEach(teamMember => {
-    //     // console.log(teamMember);
-
-    //     if (teamMember.role === "Manager") {
-    //         console.log(teamMember);
-    //     }
-
-    //     // teamCards += gen.generateTeamCards(teamMember);
-    // })

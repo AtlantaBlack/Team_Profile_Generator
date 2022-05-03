@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+
+const s = require("./generateSections");
+
+function generatePage(managers, engineers, interns) {
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -26,22 +30,7 @@
             <h2>Managers / Team Leads</h2>
             <hr>
 
-            <!-- MANAGER CARD -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-secondary mb-3" style="width: auto;">
-                    <div class="card-header">
-                        <p>manager</p>
-                        <p><i class="fa-solid fa-people-group"></i> Manager</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: 23</li>
-                        <li class="list-group-item">Email: <a href="mailto:email@email.ccom" target:"_blank">email@email.ccom</a></li>
-                        <li class="list-group-item">Office: ---</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- / MANAGER CARD -->
-            
+            ${s.generateManagerSection(managers)}
             </div> <!-- end of row (management) -->
         </section> <!-- end of container (management) -->
     
@@ -53,22 +42,7 @@
             <h2>Engineers</h2>
             <hr>
 
-            <!-- ENGINEER CARD -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-secondary mb-3" style="width: auto;">
-                    <div class="card-header">
-                        <p>emginer2</p>
-                        <p><i class="fa-solid fa-robot"></i> Engineer</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: 23</li>
-                        <li class="list-group-item">Email: <a href="mailto:email@ma.com" target:"_blank">email@ma.com</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/user">https://github.com/user</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- / ENGINEER CARD -->
-            
+            ${s.generateEngineerSection(engineers)}
             </div> <!-- end of row (engineers) -->
         </section> <!-- end of container (engineers) -->
     
@@ -80,7 +54,7 @@
             <h2>Interns</h2>
             <hr>
     
-            <p>This team does not have any interns.</p>
+            ${s.generateInternSection(interns)}
             </div> <!-- end of row (interns) -->
         </section> <!-- end of container (interns) -->
     
@@ -90,4 +64,7 @@
             <h5>&copy; 2022 Sushan Yue</h5>
         </footer>
     </body>
-    </html>
+    </html>`;
+}
+
+module.exports = generatePage;
