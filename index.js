@@ -97,14 +97,13 @@ const addTeamMember = () => {
 
 // exit inquirer and pass the answers on
 const exitAndGeneratePage = () => {
-    console.log("exit");
-
     const managers = filterEmployeeByRole("Manager");
     const engineers = filterEmployeeByRole("Engineer");
     const interns = filterEmployeeByRole("Intern");
 
-    fs.writeFileSync("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
-        err ? console.error(err) : console.log("\n\npage generated!\n\n");
+    fs.writeFile("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
+        // log the success message in magenta and add empty line above and below for visibility
+        err ? console.error(err) : console.log("\n \x1b[35m Page generated! \x1b[30m \n");
     });
 }
 
@@ -124,10 +123,14 @@ const filterEmployeeByRole = (role) => {
     }
 }
 
-// --- FUNCTIONS: Initialisation ----
+// welcome message when starting the generator
+const welcomeMessage = () => {
+    // log welcome message in magenta, add empty line above and below for visibility
+    console.log("\n \x1b[35m Welcome to the team profile generator. Let's get started! \x1b[30m \n");
+}
 
-// initialise the app
-const init = () => {
+// main function for generator, which will start by first asking manager questions
+const startGenerator = () => {
     askManagerQuestions() // start by asking questions about manager
         .then(answers => { // then using the answers, make a new manager
             const manager = new Manager(
@@ -140,6 +143,16 @@ const init = () => {
             addTeamMember(); // ask to add more team members
         })
         .catch((err) => console.log(err));
+}
+
+// =============================
+//       INITIALISATION
+// =============================
+
+// initialise the app
+const init = () => {
+    welcomeMessage();
+    startGenerator();
 }
 
 // start the app!
