@@ -9,7 +9,7 @@ const Intern = require("./lib/Intern");
 
 // import helper code modules
 const q = require("./src/questions"); // questions module
-const generateIndex = require("./src/generateHTML"); // generate page module
+const generatePage = require("./src/generateHTML"); // generate page module
 
 // global variables
 let employees = []; // empty array to eventually fill with answers about the team
@@ -104,15 +104,17 @@ const exitAndGeneratePage = () => {
     // console.log(managers);
 
     const engineers = filterEmployeeByRole("Engineer");
+    console.log(`engineers: ${engineers.length}`);
     // console.log("engineers:");
-    // console.log(engineers);
+    console.log(engineers);
 
     const interns = filterEmployeeByRole("Intern");
+    console.log(`interns: ${interns.length}`);
     // console.log("interns:");
-    // console.log(interns);
+    console.log(interns);
 
 
-    fs.writeFileSync("./dist/index.html", generateIndex(managers, engineers, interns), (err) => {
+    fs.writeFileSync("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
         err ? console.error(err) : console.log("\n\npage generated!\n\n");
     });
 }

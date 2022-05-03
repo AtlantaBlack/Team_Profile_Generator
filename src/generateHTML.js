@@ -5,7 +5,6 @@ function generateManagerSection(managers) {
     if (!managers) {
         return `This team does not have any managers/team leads.`
     } else {
-
         for (let i = 0; i < managers.length; i++) {
             const icon = `<i class="fa-solid fa-people-group"></i>`;
             const email = `<a href="mailto:${managers[i].email}" target:"_blank">${managers[i].email}</a>`;
@@ -25,7 +24,6 @@ function generateManagerSection(managers) {
         </div>`
         }
     }
-
         // managers.forEach(manager => {
 
         //     console.log("manager in generate manager section");
@@ -53,14 +51,58 @@ function generateManagerSection(managers) {
 }
 
 function generateEngineerSection(engineers) {
-    return `${JSON.stringify(engineers)}`;
+    // return `${JSON.stringify(engineers)}`;
+    if (!engineers) {
+        return `This team does not have any engineers.`
+    } else {
+        for (let i = 0; i < engineers.length; i++) {
+            const icon = `<i class="fa-solid fa-robot"></i>`;
+            const email = `<a href="mailto:${engineers[i].email}" target:"_blank">${engineers[i].email}</a>`;
+        
+            return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
+            <div class="card border-secondary mb-3" style="width: auto;">
+                <div class="card-header">
+                    <p>${engineers[i].name}</p>
+                    <p>${icon} ${engineers[i].role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${engineers[i].id}</li>
+                    <li class="list-group-item">Email: ${email}</li>
+                    <li class="list-group-item">GitHub: ${engineers[i].github}</li>
+                </ul>
+            </div>
+        </div>`
+        }
+    }
 }
 
 function generateInternSection(interns) {
-    return `${JSON.stringify(interns)}`;
+    // return `${JSON.stringify(interns)}`;
+    if (!interns) {
+        return `This team does not have any interns.`
+    } else {
+        for (let i = 0; i < interns.length; i++) {
+            const icon = `<i class="fa-solid fa-graduation-cap"></i>`;
+            const email = `<a href="mailto:${interns[i].email}" target:"_blank">${interns[i].email}</a>`;
+        
+            return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
+            <div class="card border-secondary mb-3" style="width: auto;">
+                <div class="card-header">
+                    <p>${interns[i].name}</p>
+                    <p>${icon} ${interns[i].role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${interns[i].id}</li>
+                    <li class="list-group-item">Email: ${email}</li>
+                    <li class="list-group-item">School: ${interns[i].school}</li>
+                </ul>
+            </div>
+        </div>`
+        }
+    }
 }
 
-function generateIndex(managers, engineers, interns) {
+function generatePage(managers, engineers, interns) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -132,7 +174,7 @@ function generateIndex(managers, engineers, interns) {
     </html>`;
 }
 
-module.exports = generateIndex;
+module.exports = generatePage;
 
 
 
