@@ -53,21 +53,33 @@ Once all the questions have been answered, a webpage with team profiles will be 
 
 **[Video Link of Team Profile Generator being used in Terminal](https://drive.google.com/file/d/12Q9SVJNgYVA9XjBrZvrKrGZPivdQ3q3r/view)**
 
-[Click here to view the Team Profile page HTML that was generated from the video](https://github.com/AtlantaBlack/Team_Profile_Generator/blob/main/dist/index.html)
-
 Below: Gif of video showing Team Profile Generator being used in Terminal
 
 ![Demo of Team Profile Generator: Terminal](assets/images/demo-team-profile-gen-terminal.gif?raw=true "Team Profile Generator demo")
 
+**[Video Link of Team Profile Generator passing all of its tests](https://drive.google.com/file/d/1Mnsw1KbVY4M2mvvLoFgNkCbrv8nfniPV/view)**
+
+Below: Gif of video showing Team Profile Generator passing all of its tests
+
+![Demo of Team Profile Generator: Passing tests](assets/images/demo-passing-tests.gif?raw=true "Team Profile Generator demo passing its tests")
+
+[Click here to view the Team Profile page HTML that was generated from the video](https://github.com/AtlantaBlack/Team_Profile_Generator/blob/main/dist/index.html)
+
 Below: Gif of Team Profile page that was generated
 
-![Demo of Team Profile Generator: Webpage](assets/images/demo-team-profile-gen-webpage.gif?raw=true "Team Profile Generator demo")
+**![Demo of Team Profile Generator: Webpage](assets/images/demo-team-profile-gen-webpage.gif?raw=true "Team Profile Generator demo")**
 
 ## Screenshots
 
 This is the application **Team Profile Generator** as viewed in **Terminal**:
 
 ![Screenshot of Team Profile Generator: Terminal](assets/images/screenshot-team-profile-gen-terminal.jpg?raw=true "Team Profile Generator in Terminal")
+
+---
+
+This is the application passing all its tests as viewed in **Visual Studio Code**:
+
+![Screenshot of Team Profile Generator: Passing tests](assets/images/screenshot-passing-tests.jpg?raw=true "Team Profile Generator passing its tests")
 
 ---
 
