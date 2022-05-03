@@ -28,8 +28,9 @@ function generatePage(managers, engineers, interns) {
             <p class="lead lead-custom">The development team consists of the following talented people:</p>
         </header>
     
-        <main> <!-- team cards will go in here -->
-            
+        <main> 
+        <!-- team cards will be generated here --> 
+           
         <!-- MANAGEMENT -->
         <section class="container-fluid px-5 py-2">
             <div class="row justify-content-start">
