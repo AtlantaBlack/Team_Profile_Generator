@@ -53,7 +53,7 @@ Once all the questions have been answered, a webpage with team profiles will be 
 
 **[Video Link of Team Profile Generator being used in Terminal](https://drive.google.com/file/d/12Q9SVJNgYVA9XjBrZvrKrGZPivdQ3q3r/view)**
 
-[Click here to view the Team Profile page that was generated from the video]()
+[Click here to view the Team Profile page HTML that was generated from the video](https://github.com/AtlantaBlack/Team_Profile_Generator/blob/main/dist/index.html)
 
 Below: Gif of video showing Team Profile Generator being used in Terminal
 
