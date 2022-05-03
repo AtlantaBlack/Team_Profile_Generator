@@ -111,29 +111,6 @@ const exitAndGeneratePage = () => {
     // console.log("interns:");
     // console.log(interns);
 
-    // const team = {
-    //     managers,
-    //     engineers,
-    //     interns
-    // };
-
-    // console.log("team:");
-    // console.log(team);
-
-    // const engineers = employees.filter(employees => employees.role === "Engineer");
-
-    // const interns = employees.filter(employees => employees.role === "Intern");
-
-    // employees.forEach(teamMember => {
-    //     // console.log(teamMember);
-
-    //     if (teamMember.role === "Manager") {
-    //         console.log(teamMember);
-    //     }
-
-
-    //     // teamCards += gen.generateTeamCards(teamMember);
-    // })
 
     fs.writeFileSync("./dist/index.html", generateIndex(managers, engineers, interns), (err) => {
         err ? console.error(err) : console.log("\n\npage generated!\n\n");
@@ -159,4 +136,22 @@ const init = () => {
 // start the app!
 init();
 
+// ignore: originally put in exitAndGeneratePage
+    // const team = {
+    //     managers,
+    //     engineers,
+    //     interns
+    // };
 
+    // console.log("team:");
+    // console.log(team);
+
+    // employees.forEach(teamMember => {
+    //     // console.log(teamMember);
+
+    //     if (teamMember.role === "Manager") {
+    //         console.log(teamMember);
+    //     }
+
+    //     // teamCards += gen.generateTeamCards(teamMember);
+    // })
