@@ -9,10 +9,10 @@ const Intern = require("./lib/Intern");
 
 // import helper code modules
 const q = require("./src/questions"); // questions module
-const gen = require("./src/generateHTML"); // generate page module
+const generateIndex = require("./src/generateHTML"); // generate page module
 
 // global variables
-let team = []; // empty array to eventually fill with answers about the team
+let employees = []; // empty array to eventually fill with answers about the team
 let questions = []; // empty array that will fill with questions based on employee role
 
 // asking questions for the manager
@@ -32,7 +32,7 @@ const askEngineerQuestions = () => {
                 `${answers.email}`,
                 `${answers.github}`
             )
-            team.push(engineer); // add new engineer to the team
+            employees.push(engineer); // add new engineer to the team
             addTeamMember(); // ask to add another team member
         })
         .catch((err) => console.error(err));
@@ -49,7 +49,7 @@ const askInternQuestions = () => {
                 `${answers.email}`,
                 `${answers.school}`
             )
-            team.push(intern); // add intern to the team
+            employees.push(intern); // add intern to the team
             addTeamMember(); // ask if you want to add more people
         })
         .catch((err) => console.error(err));
@@ -80,18 +80,64 @@ const addTeamMember = () => {
         .catch((err) => console.error(err));
 }
 
+const filterEmployeeByRole = (role) => {
+    switch (role) {
+        case "Manager":
+            return employees.filter(employees => employees.role === "Manager");
+        case "Engineer":
+            return employees.filter(employees => employees.role === "Engineer");
+        case "Intern":
+            return employees.filter(employees => employees.role === "Intern");
+        default:
+            break;
+    }
+}
+
 // exit inquirer and pass the answers on
 const exitAndGeneratePage = () => {
-    console.log(team);    
+    // console.log(employees);    
     console.log("exit");
 
-    team.forEach(teamMember => {
-        console.log(teamMember);
-    })
 
-    // fs.writeFileSync("./dist/index.html", gen.generatePage(team), (err) => {
-    //     err ? console.error(err) : console.log("page generated!");
-    // });
+    const managers = filterEmployeeByRole("Manager");
+    // console.log("managers:");
+    // console.log(managers);
+
+    const engineers = filterEmployeeByRole("Engineer");
+    // console.log("engineers:");
+    // console.log(engineers);
+
+    const interns = filterEmployeeByRole("Intern");
+    // console.log("interns:");
+    // console.log(interns);
+
+    // const team = {
+    //     managers,
+    //     engineers,
+    //     interns
+    // };
+
+    // console.log("team:");
+    // console.log(team);
+
+    // const engineers = employees.filter(employees => employees.role === "Engineer");
+
+    // const interns = employees.filter(employees => employees.role === "Intern");
+
+    // employees.forEach(teamMember => {
+    //     // console.log(teamMember);
+
+    //     if (teamMember.role === "Manager") {
+    //         console.log(teamMember);
+    //     }
+
+
+    //     // teamCards += gen.generateTeamCards(teamMember);
+    // })
+
+    fs.writeFileSync("./dist/index.html", generateIndex(managers, engineers, interns), (err) => {
+        err ? console.error(err) : console.log("\n\npage generated!\n\n");
+    });
 }
 
 // initialise the app
@@ -104,7 +150,7 @@ const init = () => {
                 `${answers.email}`,
                 `${answers.officeNumber}`
             )
-            team.push(manager); // add manager to the team
+            employees.push(manager); // add manager to the team
             addTeamMember(); // ask to add more team members
         })
         .catch((err) => console.log(err));

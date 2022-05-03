@@ -34,7 +34,7 @@ describe("Manager tests", () => {
                 new Manager("George Bush", 1, "email@email.com", ""),
                 new Manager("George Bush", 1, "email@email.com", "    ")
             ];
-            const err = "Please input Manager's Office Number. If none, input 'N/A' or '---'.";
+            const err = "Please enter Manager's Office Number. If none, enter '---'.";
 
             expect(() => {
                 invalidManagers.forEach(invalidManager => {

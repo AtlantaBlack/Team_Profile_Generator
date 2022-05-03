@@ -38,12 +38,12 @@ function managerQuestions() {
         {
             type: "input",
             name: "officeNumber",
-            message: "Office number of Manager/Team Lead (if not applicable, enter 'N/A' or '---'):",
+            message: "Office number of Manager/Team Lead (if not applicable, enter '---'):",
             default: "---",
             validate(answer) {
                 let office = answer.trim();
                 if (!office || !Boolean(office)) {
-                    return "Please enter an office number. If not applicable, enter 'N/A' or '---'";
+                    return "Please enter an office number. If not applicable, enter '---'";
                 }
                 return true;
             }
@@ -144,14 +144,14 @@ function internQuestions() {
         {
             type: "input",
             name: "school",
-            message: "School of Intern (if not applicable, enter 'N/A' or '---'):",
-            default: "N/A",
+            message: "School of Intern (if not applicable, enter '---'):",
+            default: "---",
             validate(answer) {
                 const schoolRegex = /[^a-zA-Z0-9 :&-]+/g;
                 let school = answer.trim();
 
                 if (!school || !Boolean(school)) {
-                    return "Please enter a school name. If not applicable, enter 'N/A' or '---'";
+                    return "Please enter a school name. If not applicable, enter '---'";
                 } else if (schoolRegex.test(school)) {
                     return "School name can only include alphanumeric characters, underscores, spaces, colons, dashes, and/or ampersands.";
                 }
