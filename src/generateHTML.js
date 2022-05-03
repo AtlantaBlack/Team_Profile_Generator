@@ -5,30 +5,51 @@ function generateManagerSection(managers) {
     if (!managers) {
         return `This team does not have any managers/team leads.`
     } else {
-        managers.forEach(manager => {
 
-            console.log("manager in generate manager section");
-            console.log(manager);
-            console.log(manager.name);
-
+        for (let i = 0; i < managers.length; i++) {
             const icon = `<i class="fa-solid fa-people-group"></i>`;
-            const email = `Email: <a href="mailto:${manager.email}" target:"_blank">${manager.email}</a>`;
+            const email = `<a href="mailto:${managers[i].email}" target:"_blank">${managers[i].email}</a>`;
         
             return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
             <div class="card border-secondary mb-3" style="width: auto;">
                 <div class="card-header">
-                    <p>${manager.name}</p>
-                    <p>${icon} ${manager.role}</p>
+                    <p>${managers[i].name}</p>
+                    <p>${icon} ${managers[i].role}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${manager.id}</li>
+                    <li class="list-group-item">ID: ${managers[i].id}</li>
                     <li class="list-group-item">Email: ${email}</li>
-                    <li class="list-group-item">Office: ${manager.officeNumber}</li>
+                    <li class="list-group-item">Office: ${managers[i].officeNumber}</li>
                 </ul>
             </div>
         </div>`
-        });
+        }
     }
+
+        // managers.forEach(manager => {
+
+        //     console.log("manager in generate manager section");
+        //     console.log(manager);
+        //     console.log(manager.name);
+
+        //     const icon = `<i class="fa-solid fa-people-group"></i>`;
+        //     const email = `Email: <a href="mailto:${manager.email}" target:"_blank">${manager.email}</a>`;
+        
+        //     return `<div class="col-12 col-sm-6 col-md-4 col-lg-3" style="border:1px solid green;">
+        //     <div class="card border-secondary mb-3" style="width: auto;">
+        //         <div class="card-header">
+        //             <p>${manager.name}</p>
+        //             <p>${icon} ${manager.role}</p>
+        //         </div>
+        //         <ul class="list-group list-group-flush">
+        //             <li class="list-group-item">ID: ${manager.id}</li>
+        //             <li class="list-group-item">Email: ${email}</li>
+        //             <li class="list-group-item">Office: ${manager.officeNumber}</li>
+        //         </ul>
+        //     </div>
+        // </div>`
+        // });
+        // }
 }
 
 function generateEngineerSection(engineers) {
