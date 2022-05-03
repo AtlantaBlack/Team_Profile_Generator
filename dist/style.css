@@ -1,0 +1,68 @@
+:root {
+    --base: #2c476b;
+    --base-grey: #1777de;
+    --mid: #75a9c8;
+    --light: #e0fbfc;
+    --pale: #e8f0f4;
+    --accent: #f38455;
+    --accent-light: #ffc186;
+    --dark: #293241;
+
+    --off-white: #f6ffff;
+}
+
+body {
+    color: var(--dark);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+}
+
+header {
+    background-color: var(--base);
+    color: var(--accent-light);
+}
+
+a {
+    color: var(--dark);
+    text-decoration: none;
+    padding: 0 0.2rem; 
+    border: 2px solid white;
+    border-radius: 0.2rem;
+}
+
+a:hover,
+a:active {
+    color: var(--base-grey);
+    border: 2px solid var(--accent-light);
+}
+
+a:focus {
+    outline: 2px solid var(--accent);
+}
+
+.lead-custom {
+    color: var(--light);
+}
+
+.lightly-embold {
+    font-weight: 400;
+}
+
+.embolden {
+    font-weight: 500;
+}
+
+.manager-card-header {
+    background-color: var(--accent);
+    color: var(--off-white);
+}
+
+.engineer-card-header {
+    background-color: var(--mid);
+    color: var(--off-white);
+}
+
+.intern-card-header {
+    background-color: var(--pale);
+    color: var(--base);
+}

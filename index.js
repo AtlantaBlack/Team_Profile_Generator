@@ -101,6 +101,7 @@ const exitAndGeneratePage = () => {
     const engineers = filterEmployeeByRole("Engineer");
     const interns = filterEmployeeByRole("Intern");
 
+    // note to self: writeFile ≠ writeFileSync
     fs.writeFile("./dist/index.html", generatePage(managers, engineers, interns), (err) => {
         // log the success message in magenta and add empty line above and below for visibility
         err ? console.error(err) : console.log("\n \x1b[35m Page generated! \x1b[30m \n");

@@ -12,13 +12,19 @@ function generatePage(managers, engineers, interns) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- Font Awesome v6 icons -->
         <link href="https://use.fontawesome.com/releases/v6.1.0/css/all.css" rel="stylesheet" integrity="sha384-eLT4eRYPHTmTsFGFAzjcCWX+wHfUInVWNm9YnwpiatljsZOwXtwV2Hh6sHM6zZD9" crossorigin="anonymous">
+        <!-- Google Fonts: Quicksand 300, 400, 500 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+        <!-- custom stylesheet -->
+        <link href="./style.css" rel="stylesheet">
         <title>Team Profile</title>
     </head>
 
     <body>
         <header class="jumbotron px-5 py-2">
-            <h1 class="display-4">Team Profiles</h1>
-            <p class="lead">The development team consists of the following talented people:</p>
+            <h1 class="display-4 embolden">Team Profiles</h1>
+            <p class="lead lead-custom">The development team consists of the following talented people:</p>
         </header>
     
         <main> <!-- team cards will go in here -->

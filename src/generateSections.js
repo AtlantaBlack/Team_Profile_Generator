@@ -44,8 +44,8 @@ function generateEngineerSection(engineers) {
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card border-secondary mb-3" style="width: auto;">
                     <div class="card-header">
-                        <p>${engineers[i].name}</p>
-                        <p>${icon} ${engineers[i].role}</p>
+                        <h3>${engineers[i].name}</h3>
+                        <h4>${icon} ${engineers[i].role}</h4>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${engineers[i].id}</li>
