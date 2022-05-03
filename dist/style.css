@@ -2,17 +2,18 @@
      Colour Palette
 ------------------------ */
 
-:root {
+:root {    
+    --dark: #293241;
     --base: #2c476b;
     --base-grey: #1777de;
+
     --mid: #75a9c8;
     --light: #e0fbfc;
     --pale: #e8f0f4;
+    --off-white: #f6ffff;
+
     --accent: #f38455;
     --accent-light: #ffc186;
-    --dark: #293241;
-
-    --off-white: #f6ffff;
 }
 
 /* ------------------------
