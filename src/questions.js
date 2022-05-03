@@ -100,10 +100,10 @@ function engineerQuestions() {
             message: "GitHub URL of Engineer:",
             default: "https://github.com/user",
             validate(answer) {
-                // github must include github and a user profile
-                const gitRegex = /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/i;
+                // github must include http OR https, 'github' and a user profile
+                const gitRegex = /^https?:\/\/(www\.)?(github\.)([a-z])+\/([A-Za-z0-9]{1,})+\/?$/i;
                 if (!gitRegex.test(answer)) {
-                    return "Please enter a valid GitHub URL.";
+                    return "Please enter a valid GitHub URL. Remember to include 'http' OR 'https' and user profile.";
                 }
                 return true;
             }
