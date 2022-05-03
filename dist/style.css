@@ -1,3 +1,7 @@
+/* ------------------------
+     Colour Palette
+------------------------ */
+
 :root {
     --base: #2c476b;
     --base-grey: #1777de;
@@ -11,6 +15,10 @@
     --off-white: #f6ffff;
 }
 
+/* ------------------------
+       General Styling
+------------------------ */
+
 body {
     color: var(--dark);
     font-family: 'Quicksand', sans-serif;
@@ -20,6 +28,7 @@ body {
 header {
     background-color: var(--base);
     color: var(--accent-light);
+    margin-bottom: 0.5rem;
 }
 
 a {
@@ -40,6 +49,10 @@ a:focus {
     outline: 2px solid var(--accent);
 }
 
+/* ------------------------
+   Custom Utility Classes 
+------------------------ */
+
 .lead-custom {
     color: var(--light);
 }
@@ -51,6 +64,11 @@ a:focus {
 .embolden {
     font-weight: 500;
 }
+
+/* ------------------------
+       Custom Styling
+      for Card Headers
+------------------------ */
 
 .manager-card-header {
     background-color: var(--accent);

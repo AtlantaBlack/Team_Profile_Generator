@@ -1,6 +1,7 @@
-
+// import generate sections functions
 const s = require("./generateSections");
 
+// making the base HTML
 function generatePage(managers, engineers, interns) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -17,7 +18,7 @@ function generatePage(managers, engineers, interns) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
         <!-- custom stylesheet -->
-        <link href="./style.css" rel="stylesheet">
+        <link href="../dist/style.css" rel="stylesheet">
         <title>Team Profile</title>
     </head>
 
