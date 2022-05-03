@@ -14,11 +14,11 @@ function generateManagerSection(managers) {
         for (let i = 0; i < managers.length; i++) {
             const icon = `<i class="fa-solid fa-people-group"></i>`;
 
-            const email = `<a class="embolden" href="mailto:${trim(managers[i].email)}" target:"_blank">${trim(managers[i].email)}</a>`;
+            const email = `<a class="embolden" href="mailto:${trim(managers[i].email)}" target="_blank">${trim(managers[i].email)}</a>`;
         
             managerSection += `<!-- MANAGER CARD -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-secondary mb-3" style="width: auto;">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3">
+                <div class="card h-100 border-secondary mb-3" style="width: auto;">
                     <div class="card-header manager-card-header">
                         <p class="h4 text-capitalize lightly-embold">${trim(managers[i].name)}</p>
                         <p class="h5 lightly-embold">${icon} ${managers[i].role}</p>
@@ -48,13 +48,13 @@ function generateEngineerSection(engineers) {
         for (let i = 0; i < engineers.length; i++) {
             const icon = `<i class="fa-solid fa-robot"></i>`;
 
-            const email = `<a class="embolden" href="mailto:${trim(engineers[i].email)}" target:"_blank">${trim(engineers[i].email)}</a>`;
+            const email = `<a class="embolden" href="mailto:${trim(engineers[i].email)}" target="_blank">${trim(engineers[i].email)}</a>`;
 
-            const github = `<a class="embolden" href="${trim(engineers[i].github)}">${trim(engineers[i].github)}</a>`;
+            const github = `<a class="embolden" href="${trim(engineers[i].github)}" target="_blank">${trim(engineers[i].github)}</a>`;
         
             engineerSection += `<!-- ENGINEER CARD -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-secondary mb-3" style="width: auto;">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3">
+                <div class="card h-100 border-secondary mb-3" style="width: auto;">
                     <div class="card-header engineer-card-header">
                         <p class="h4 text-capitalize lightly-embold">${trim(engineers[i].name)}</p>
                         <p class="h5 lightly-embold">${icon} ${engineers[i].role}</p>
@@ -84,11 +84,11 @@ function generateInternSection(interns) {
         for (let i = 0; i < interns.length; i++) {
             const icon = `<i class="fa-solid fa-graduation-cap"></i>`;
 
-            const email = `<a class="embolden" href="mailto:${trim(interns[i].email)}" target:"_blank">${trim(interns[i].email)}</a>`;
+            const email = `<a class="embolden" href="mailto:${trim(interns[i].email)}" target="_blank">${trim(interns[i].email)}</a>`;
         
             internSection += `<!-- INTERN CARD -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-secondary mb-3" style="width: auto;">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3">
+                <div class="card h-100 border-secondary mb-3" style="width: auto;">
                     <div class="card-header intern-card-header">
                         <p class="h4 text-capitalize lightly-embold">${trim(interns[i].name)}</p>
                         <p class="h5 lightly-embold">${icon} ${interns[i].role}</p>

@@ -51,19 +51,41 @@ Once all the questions have been answered, a webpage with team profiles will be 
 
 ## Demo
 
-**[Video Link]()**
+**[Video Link of Team Profile Generator being used in Terminal](https://drive.google.com/file/d/12Q9SVJNgYVA9XjBrZvrKrGZPivdQ3q3r/view)**
 
-[page link]()
+[Click here to view the Team Profile page that was generated from the video]()
 
-desc desc
+Below: Gif of video showing Team Profile Generator being used in Terminal
 
-![Demo of Team Profile Generator: Terminal](assets/images/FILE-NAME-HERE.gif?raw=true "Team Profile Generator demo")
+![Demo of Team Profile Generator: Terminal](assets/images/demo-team-profile-gen-terminal.gif?raw=true "Team Profile Generator demo")
+
+Below: Gif of Team Profile page that was generated
+
+![Demo of Team Profile Generator: Webpage](assets/images/demo-team-profile-gen-webpage.gif?raw=true "Team Profile Generator demo")
 
 ## Screenshots
 
-desc desc
+This is the application **Team Profile Generator** as viewed in **Terminal**:
 
-![Screenshot of Team Profile Generator: Terminal](assets/images/FILE-NAME-HERE.jpg?raw=true "Team Profile Generator in Terminal")
+![Screenshot of Team Profile Generator: Terminal](assets/images/screenshot-team-profile-gen-terminal.jpg?raw=true "Team Profile Generator in Terminal")
+
+---
+
+This is how the body of the generated webpage looks with all sections populated:
+
+![Screenshot of Team Profile Generator: All sections populated](assets/images/screenshot-team-profile-gen-body.jpg?raw=true "Team Profile Generator with managers, engineers and interns")
+
+---
+
+This is how the generated webpage looks if no engineers were entered:
+
+![Screenshot of Team Profile Generator: No engineers](assets/images/screenshot-team-profile-gen-no-engineers.jpg?raw=true "Team Profile Generator with no engineers")
+
+---
+
+This is how the generated webpage looks if no interns were entered:
+
+![Screenshot of Team Profile Generator: No interns](assets/images/screenshot-team-profile-gen-no-engineers.jpg?raw=true "Team Profile Generator with no interns")
 
 ---
 
